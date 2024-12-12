@@ -13,6 +13,8 @@ ReactDOM.createRoot(document.getElementById("root")).render(
       <ThemeTenantProvider theme={theme}>
         <ThemeProvider theme={theme}>
           <App />
+          <div id="root-modal"></div>
+          <div id="root-tooltip"></div>
         </ThemeProvider>
       </ThemeTenantProvider>
     </BrowserRouter>

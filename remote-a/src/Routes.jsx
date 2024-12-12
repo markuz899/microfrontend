@@ -2,6 +2,7 @@ import { Routes, Route } from "react-router-dom";
 import { useState, useEffect } from "react";
 import Navbar from "./navbar";
 import { useTheme } from "styled-components";
+import { Button, Modal } from "@nyp/tenantuikit";
 
 function Home({ title }) {
   return (
@@ -50,6 +51,15 @@ function About({ title }) {
       <div>About Remote A - {title}</div>
       <div>
         <h1 style={{ color: theme.colors.warning }}>Todo List</h1>
+        <Modal
+          onClickOther
+          title="Example"
+          render={() => (
+            <div style={{ color: theme.colors.dark }}>CONTENT MODAL</div>
+          )}
+        >
+          <Button kind="inverse-primary">TEST MODAL</Button>
+        </Modal>
         <ul>
           {todos.map((todo) => (
             <li key={todo.id}>
