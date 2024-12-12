@@ -1,6 +1,7 @@
 import { Routes, Route } from "react-router-dom";
 import { useState, useEffect } from "react";
 import Navbar from "./navbar";
+import { useTheme } from "styled-components";
 
 function Home({ title }) {
   return (
@@ -12,6 +13,7 @@ function Home({ title }) {
 }
 
 function About({ title }) {
+  const theme = useTheme();
   const [todos, setTodos] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -47,7 +49,7 @@ function About({ title }) {
       <Navbar />
       <div>About Remote A - {title}</div>
       <div>
-        <h1>Todo List</h1>
+        <h1 style={{ color: theme.colors.warning }}>Todo List</h1>
         <ul>
           {todos.map((todo) => (
             <li key={todo.id}>

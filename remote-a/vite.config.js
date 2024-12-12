@@ -18,6 +18,11 @@ export default defineConfig({
       shared: { ...pkg.dependencies },
     }),
   ],
+  resolve: {
+    alias: {
+      "@nyp/tenantuikit": "/node_modules/@nyp/tenantuikit",
+    },
+  },
   build: {
     target: "esnext",
   },

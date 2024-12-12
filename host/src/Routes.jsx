@@ -3,6 +3,7 @@ import { Routes, Route } from "react-router-dom";
 import Navbar from "./navbar";
 import { Button } from "@nyp/tenantuikit";
 import { useTheme } from "styled-components";
+import { theme } from "./theme/index.js";
 
 const RemoteA = React.lazy(() => import("remoteA/App"));
 const RemoteB = React.lazy(() => import("remoteB/App"));
@@ -46,7 +47,7 @@ function AppRoutes() {
           <Route path="contact" element={<Contact />} />
           <Route
             path="remoteA/*"
-            element={<RemoteA title="Microfrontend Accio" />}
+            element={<RemoteA title="Microfrontend Accio" theme={theme} />}
           />
           <Route
             path="remoteB/*"

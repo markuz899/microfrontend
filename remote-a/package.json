@@ -10,9 +10,11 @@
     "preview": "vite preview --port=5001"
   },
   "dependencies": {
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-router-dom": "^6.23.1"
+    "@nyp/tenantuikit": "^0.0.49",
+    "react": "^18",
+    "react-dom": "^18",
+    "react-router-dom": "^6.23.1",
+    "styled-components": "^6.1.12"
   },
   "devDependencies": {
     "@originjs/vite-plugin-federation": "^1.3.5",
