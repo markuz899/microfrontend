@@ -3,9 +3,11 @@ import { Routes, Route } from "react-router-dom";
 import Navbar from "./navbar";
 import { Button } from "@nyp/tenantuikit";
 import { useTheme } from "styled-components";
-import { theme } from "./theme/index.js";
+import { theme } from "./theme";
 
+// @ts-ignore
 const RemoteA = React.lazy(() => import("remoteA/App"));
+// @ts-ignore
 const RemoteB = React.lazy(() => import("remoteB/App"));
 
 function Home() {
@@ -61,17 +63,28 @@ function AppRoutes() {
 
 export default AppRoutes;
 
-class ErrorBoundary extends React.Component {
-  constructor(props) {
+interface ErrorBoundaryProps {
+  children: React.ReactNode;
+}
+
+interface ErrorBoundaryState {
+  hasError: boolean;
+}
+
+class ErrorBoundary extends React.Component<
+  ErrorBoundaryProps,
+  ErrorBoundaryState
+> {
+  constructor(props: ErrorBoundaryProps) {
     super(props);
     this.state = { hasError: false };
   }
 
-  static getDerivedStateFromError(error) {
+  static getDerivedStateFromError(error: any): ErrorBoundaryState {
     return { hasError: true };
   }
 
-  componentDidCatch(error, errorInfo) {
+  componentDidCatch(error: any, errorInfo: any) {
     console.error("ErrorBoundary caught an error", error, errorInfo);
   }
 
