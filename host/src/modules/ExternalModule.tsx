@@ -2,14 +2,14 @@ import React, { useEffect } from "react";
 // @ts-ignore
 const mountExt: any = await import("mfeRemote/AppModule");
 
-const RemoteExtModule = () => {
+const RemoteExtModule = ({ title }: { title: string }) => {
   useEffect(() => {
-    mountExt.default.mountExt();
+    mountExt.default.mountExt({ title });
   }, []);
   return (
     <div className="external-module">
       {/* @ts-ignore */}
-      <app-dashboard></app-dashboard>
+      <app-dashboard title={title}></app-dashboard>
     </div>
   );
 };

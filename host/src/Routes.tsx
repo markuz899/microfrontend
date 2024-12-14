@@ -45,10 +45,10 @@ function Angular() {
   return (
     <div className="remotes">
       <div className="remotes-col">
-        <RemoteAppModule></RemoteAppModule>
+        <RemoteAppModule title="Microfrontend angular"></RemoteAppModule>
       </div>
       <div className="remotes-col">
-        <RemoteExtModule></RemoteExtModule>
+        <RemoteExtModule title="Microfrontend angular External"></RemoteExtModule>
       </div>
     </div>
   );
