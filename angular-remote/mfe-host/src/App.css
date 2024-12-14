@@ -1,0 +1,28 @@
+body {
+  background-color: #282c34;
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+.container {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+}
+
+.header {
+  text-align: center;
+  color: white;
+  border-bottom: 3px dashed white;
+  margin-bottom: 5px;
+}
+
+.remotes {
+  display: table-row;
+  flex-flow: row nowrap;
+  justify-content: space-evenly;
+}
+
+.remotes-col {
+  display: table-cell;
+}

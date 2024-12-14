@@ -39,6 +39,18 @@ const Navbar = () => {
           <Link to="/remoteB/contact">Contact</Link>
         </li>
       </ul>
+      <ul>
+        <li>Remote C</li>
+        <li>
+          <Link to="/remoteC">Home</Link>
+        </li>
+        <li>
+          <Link to="/remoteC/about">About</Link>
+        </li>
+        <li>
+          <Link to="/remoteC/contact">Contact</Link>
+        </li>
+      </ul>
     </div>
   );
 };

@@ -4,6 +4,8 @@ import Navbar from "./navbar";
 import { Button } from "@nyp/tenantuikit";
 import { useTheme } from "styled-components";
 import { theme } from "./theme";
+import RemoteAppModule from "./modules/AppModule";
+import RemoteExtModule from "./modules/ExternalModule";
 
 // @ts-ignore
 const RemoteA = React.lazy(() => import("remoteA/App"));
@@ -39,6 +41,19 @@ function Contact() {
   );
 }
 
+function Angular() {
+  return (
+    <div className="remotes">
+      <div className="remotes-col">
+        <RemoteAppModule></RemoteAppModule>
+      </div>
+      <div className="remotes-col">
+        <RemoteExtModule></RemoteExtModule>
+      </div>
+    </div>
+  );
+}
+
 function AppRoutes() {
   return (
     <ErrorBoundary>
@@ -55,6 +70,7 @@ function AppRoutes() {
             path="remoteB/*"
             element={<RemoteB title="Microfrontend B" />}
           />
+          <Route path="remoteC/*" element={<Angular />} />
         </Routes>
       </Suspense>
     </ErrorBoundary>

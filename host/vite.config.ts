@@ -11,6 +11,11 @@ export default defineConfig({
       remotes: {
         remoteA: "http://localhost:5001/remoteA/assets/remoteEntry.js",
         remoteB: "http://localhost:5002/remoteB/assets/remoteEntry.js",
+        // @ts-ignore
+        mfeRemote: {
+          external: "http://localhost:8080/remoteEntry.js",
+          format: "var", // Indica che il remote è un modulo Webpack (non ESM)
+        },
       },
       shared: {
         react: { version: "^18.0.0" },
