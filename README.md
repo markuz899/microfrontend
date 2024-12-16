@@ -26,7 +26,7 @@ microfe exposed in 5001 & 5002 port
 move inside folder angular-remote and run
 
 ```bash
-  npm install
+  yarn install
   npm run build
   npx http-server dist/mfe-remote --cors
 ```
