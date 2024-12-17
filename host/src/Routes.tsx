@@ -41,14 +41,14 @@ function Contact() {
   );
 }
 
-function Angular() {
+function Angular({ title }: { title: string }) {
   return (
     <div className="remotes">
       <div className="remotes-col">
-        <RemoteAppModule title="Microfrontend angular"></RemoteAppModule>
+        <RemoteAppModule title={title}></RemoteAppModule>
       </div>
       <div className="remotes-col">
-        <RemoteExtModule title="Microfrontend angular External"></RemoteExtModule>
+        <RemoteExtModule title={`${title}-External`}></RemoteExtModule>
       </div>
     </div>
   );
@@ -70,7 +70,10 @@ function AppRoutes() {
             path="remoteB/*"
             element={<RemoteB title="Microfrontend B" />}
           />
-          <Route path="remoteC/*" element={<Angular />} />
+          <Route
+            path="remoteC/*"
+            element={<Angular title="Microfrontend angular" />}
+          />
         </Routes>
       </Suspense>
     </ErrorBoundary>
