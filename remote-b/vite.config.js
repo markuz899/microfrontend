@@ -14,8 +14,21 @@ export default defineConfig({
       filename: "remoteEntry.js",
       exposes: {
         "./App": "./src/App",
+        "./Button": "./src/Button",
       },
       shared: { ...pkg.dependencies },
+      // react: {
+      //   singleton: true,
+      //   version: deps['react']
+      // },
+      // 'react-dom': {
+      //   singleton: true,
+      //   version: deps['react-dom']
+      // },
+      // 'react-router-dom': {
+      //   singleton: true,
+      //   version: deps['react-router-dom']
+      // },
     }),
   ],
   build: {
