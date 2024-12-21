@@ -17,18 +17,7 @@ export default defineConfig({
         "./Button": "./src/Button",
       },
       shared: { ...pkg.dependencies },
-      // react: {
-      //   singleton: true,
-      //   version: deps['react']
-      // },
-      // 'react-dom': {
-      //   singleton: true,
-      //   version: deps['react-dom']
-      // },
-      // 'react-router-dom': {
-      //   singleton: true,
-      //   version: deps['react-router-dom']
-      // },
+      // shared: { react: { singleton: true }, "react-dom": { singleton: true } },
     }),
   ],
   build: {

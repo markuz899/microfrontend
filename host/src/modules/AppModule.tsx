@@ -1,6 +1,13 @@
 import React, { useEffect, useState } from "react";
+import Layout from "../containers/Layout";
 
-const RemoteAppModule = ({ title }: { title: string }) => {
+const RemoteAppModule = ({
+  global,
+  title,
+}: {
+  global?: any;
+  title: string;
+}) => {
   const [error, setError] = useState<string | null>(null);
   const [isLoaded, setIsLoaded] = useState(false);
 
@@ -34,10 +41,10 @@ const RemoteAppModule = ({ title }: { title: string }) => {
   }
 
   return (
-    <div className="remote-module">
+    <Layout>
       {/* @ts-ignore */}
       <app-root></app-root>
-    </div>
+    </Layout>
   );
 };
 
