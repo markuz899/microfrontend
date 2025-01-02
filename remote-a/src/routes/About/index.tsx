@@ -1,19 +1,15 @@
-import { Routes, Route } from "react-router-dom";
-import { useState, useEffect } from "react";
-import Navbar from "./navbar";
-import { useTheme } from "styled-components";
 import { Button, Modal } from "@nyp/tenantuikit";
+import React, { useEffect, useState } from "react";
+import { useTheme } from "styled-components";
+import Layout from "../../containers/Layout";
 
-function Home({ title }) {
-  return (
-    <div>
-      <Navbar />
-      <p>Home Remote A - {title}</p>
-    </div>
-  );
+interface Todo {
+  id: number;
+  title: string;
+  completed: boolean;
 }
 
-function About({ title }) {
+function About({ title }: { title?: string }) {
   const theme = useTheme();
   const [todos, setTodos] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -46,50 +42,27 @@ function About({ title }) {
   }
 
   return (
-    <div>
-      <Navbar />
+    <Layout>
       <div>About Remote A - {title}</div>
       <div>
         <h1 style={{ color: theme.colors.warning }}>Todo List</h1>
         <Modal
           onClickOther
           title="Example"
-          render={() => (
-            <div style={{ color: theme.colors.dark }}>CONTENT MODAL</div>
-          )}
+          render={() => <div style={{ color: theme.colors.dark }}>CONTENT MODAL</div>}
         >
           <Button kind="inverse-primary">TEST MODAL</Button>
         </Modal>
         <ul>
-          {todos.map((todo) => (
+          {todos.map((todo: Todo) => (
             <li key={todo.id}>
-              <strong>{todo.title}</strong> -{" "}
-              {todo.completed ? "Completed" : "Pending"}
+              <strong>{todo.title}</strong> - {todo.completed ? "Completed" : "Pending"}
             </li>
           ))}
         </ul>
       </div>
-    </div>
+    </Layout>
   );
 }
 
-function Contact({ title }) {
-  return (
-    <div>
-      <Navbar />
-      <p>Contact Remote A - {title}</p>
-    </div>
-  );
-}
-
-function AppRoutes({ title }) {
-  return (
-    <Routes>
-      <Route path="/" element={<Home title={title} />} />
-      <Route path="about" element={<About title={title} />} />
-      <Route path="contact" element={<Contact title={title} />} />
-    </Routes>
-  );
-}
-
-export default AppRoutes;
+export default React.memo(About);

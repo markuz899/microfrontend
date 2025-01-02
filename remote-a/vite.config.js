@@ -13,9 +13,13 @@ export default defineConfig({
       name: "remote_a",
       filename: "remoteEntry.js",
       exposes: {
-        "./App": "./src/App",
+        "./App": "./src/containers/App",
       },
-      shared: { ...pkg.dependencies },
+      shared: {
+        react: { version: "^18.0.0" },
+        "react-dom": { version: "^18.0.0" },
+        "react-router-dom": { version: "^6.23.1" },
+      },
     }),
   ],
   resolve: {
@@ -25,5 +29,8 @@ export default defineConfig({
   },
   build: {
     target: "esnext",
+    rollupOptions: {
+      external: ["typescript"],
+    },
   },
 });
