@@ -21,7 +21,7 @@ const Counter = ({
     <CounterStyle>
       <p className="counter_title">Counter: {counter.count}</p>
       <p className="counter_title">Data length: {counter.data.length}</p>
-      <p className="counter_title">Data id: {counter.detail.id || "None"}</p>
+      <p className="counter_title">Data id: {counter?.detail?.id || "None"}</p>
       <Button fluid onClick={() => increment()}>
         Increment
       </Button>
