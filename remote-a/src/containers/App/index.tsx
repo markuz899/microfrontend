@@ -6,6 +6,7 @@ import { theme as defaultTheme } from "../../theme/index.js";
 import { Suspense } from "react";
 import { Route, Routes } from "react-router-dom";
 import { INavigation, navigation } from "../../routes/navigation";
+import ErrorBoundary from "../Error";
 
 interface AppProps {
   title?: string;
@@ -18,19 +19,21 @@ function App({ title, theme = defaultTheme }: AppProps) {
   return (
     <ThemeTenantProvider theme={theme}>
       <ThemeProvider theme={theme}>
-        <Suspense fallback={<div></div>}>
-          <Routes>
-            {navigation.map((route: INavigation) => {
-              return (
-                <Route
-                  key={`route-${route.path}`}
-                  path={route.path}
-                  element={<route.component global={global} title={title} />}
-                />
-              );
-            })}
-          </Routes>
-        </Suspense>
+        <ErrorBoundary>
+          <Suspense fallback={<div></div>}>
+            <Routes>
+              {navigation.map((route: INavigation) => {
+                return (
+                  <Route
+                    key={`route-${route.path}`}
+                    path={route.path}
+                    element={<route.component global={global} title={title} />}
+                  />
+                );
+              })}
+            </Routes>
+          </Suspense>
+        </ErrorBoundary>
         <GlobalStyle />
         <div id="root-modal"></div>
         <div id="root-tooltip"></div>

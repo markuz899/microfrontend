@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { pathRouting } from "./routes/navigation";
 
 const Navbar = () => {
   return (
@@ -6,13 +7,13 @@ const Navbar = () => {
       <ul>
         <li>Host</li>
         <li>
-          <Link to="/">Home</Link>
+          <Link to={pathRouting.home}>Home</Link>
         </li>
         <li>
-          <Link to="/about">About</Link>
+          <Link to={pathRouting.about}>About</Link>
         </li>
         <li>
-          <Link to="/contact">Contact</Link>
+          <Link to={pathRouting.contact}>Contact</Link>
         </li>
       </ul>
       <ul>
